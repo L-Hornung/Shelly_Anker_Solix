@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Env
+.venv/
+
+# Env Datei (WICHTIG → keine Passwörter hochladen!)
+.env
+
+# OS
+.DS_Store
+Thumbs.db
