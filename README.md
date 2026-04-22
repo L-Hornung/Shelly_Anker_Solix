@@ -51,7 +51,7 @@ This ensures:
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/L-Hornung/Shelly_Anker_Solix
 cd YOUR_REPO
 ```
 
@@ -98,7 +98,8 @@ POLL_INTERVAL_SECONDS=10
 # Power thresholds
 GRID_OFF_THRESHOLD_W=100
 GRID_ON_200_THRESHOLD_W=200
-GRID_ON_400_THRESHOLD_W=1000
+GRID_ON_400_THRESHOLD_W=500
+GRID_ON_800_THRESHOLD_W=1000
 LOW_POWER_DURATION_SECONDS=60
 
 # Battery protection

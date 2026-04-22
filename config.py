@@ -5,12 +5,7 @@ load_dotenv()
 
 # Shelly
 SHELLY_URL = os.getenv("SHELLY_URL", "http://192.168.10.45/emeter/0")
-POLL_INTERVAL_SECONDS = int(os.getenv("POLL_INTERVAL_SECONDS", "1"))
-
-# Schwellen
-GRID_OFF_THRESHOLD_W = float(os.getenv("GRID_OFF_THRESHOLD_W", "100"))
-GRID_ON_200_THRESHOLD_W = float(os.getenv("GRID_ON_200_THRESHOLD_W", "200"))
-GRID_ON_400_THRESHOLD_W = float(os.getenv("GRID_ON_400_THRESHOLD_W", "1000"))
+POLL_INTERVAL_SECONDS = int(os.getenv("POLL_INTERVAL_SECONDS", "20"))
 
 LOW_POWER_DURATION_SECONDS = int(os.getenv("LOW_POWER_DURATION_SECONDS", "60"))
 
@@ -18,8 +13,10 @@ LOW_POWER_DURATION_SECONDS = int(os.getenv("LOW_POWER_DURATION_SECONDS", "60"))
 MIN_BATTERY_SOC_PERCENT = int(os.getenv("MIN_BATTERY_SOC_PERCENT", "15"))
 
 # Anker Zielwerte
-ANKER_POWER_200_W = int(os.getenv("ANKER_POWER_200_W", "200"))
-ANKER_POWER_400_W = int(os.getenv("ANKER_POWER_400_W", "400"))
+ANKER_POWER_150_W = int(os.getenv("ANKER_POWER_150_W", "151"))
+ANKER_POWER_200_W = int(os.getenv("ANKER_POWER_200_W", "199"))
+ANKER_POWER_400_W = int(os.getenv("ANKER_POWER_400_W", "399"))
+ANKER_POWER_800_W = int(os.getenv("ANKER_POWER_800_W", "799"))
 ANKER_IDLE_POWER_W = int(os.getenv("ANKER_IDLE_POWER_W", "0"))
 
 # Anker Login
