@@ -142,12 +142,15 @@ def choose_target_state(
         current_state=current_state
     )
 
-    # LOGGER.info(
-    #     "FLOW grid=%.0fW soc=%s state=%s",
-    #     grid_power,
-    #     battery_soc,
-    #     current_state
-    # )
+    LOGGER.info(
+        "FLOW grid=%.0fW battery_output_measured=%s soc=%s state=%s low_power_since=%s battery_output_set=%s",
+        grid_power,
+        battery_output_measured,
+        battery_soc,
+        current_state,
+        low_power_since,
+        battery_output_set
+    )
 
     # --- SOC Schutz (nur Notfall) ---
     if battery_soc is not None and battery_soc < MIN_BATTERY_SOC_PERCENT:
@@ -198,6 +201,12 @@ def choose_target_state(
         if current_state != STATE_DISCHARGE_150W:
             LOGGER.info("→ 150W (slight export)")
         return STATE_DISCHARGE_150W, now
+    
+    LOGGER.info(
+        "kein neuer State gewählt gib zurück current_state=%s low_power_since=%s",
+        current_state,
+        low_power_since
+    )
 
     return current_state, low_power_since
 

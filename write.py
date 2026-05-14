@@ -2,7 +2,7 @@ import logging
 from typing import Any
 
 from aiohttp import ClientSession
-from api import api
+#from api import api
 
 
 LOGGER = logging.getLogger(__name__)
