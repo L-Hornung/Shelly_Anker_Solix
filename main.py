@@ -201,6 +201,10 @@ def choose_target_state(
         if current_state != STATE_DISCHARGE_150W:
             LOGGER.info("→ 150W (slight export)")
         return STATE_DISCHARGE_150W, now
+    if grid_power < 150:
+        if current_state != STATE_OFF:
+            LOGGER.info("State OFF")
+        return STATE_OFF, now
     
     LOGGER.info(
         "kein neuer State gewählt gib zurück current_state=%s low_power_since=%s",
