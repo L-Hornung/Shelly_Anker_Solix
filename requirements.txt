@@ -4,3 +4,4 @@ aiohttp
 aiofiles
 paho-mqtt
 cryptography
+git+https://github.com/thomluther/anker-solix-api.git

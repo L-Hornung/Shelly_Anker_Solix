@@ -139,18 +139,60 @@ python main.py
 
 ---
 
-## 🔄 Autostart (Recommended)
+## 🔄 Configure systemd Service
 
-To run the script automatically on boot (Raspberry Pi):
+Create or edit the service configuration:
 
 ```bash
-crontab -e
+sudo nano /etc/systemd/system/energy.service
 ```
 
-Add:
+Add the following configuration.
+
+⚠️ Replace `lukas` with your own Linux username if necessary.
+
+```ini
+[Unit]
+Description=Energy Automation
+After=network.target
+
+[Service]
+Type=simple
+
+User=lukas
+WorkingDirectory=/home/lukas/Shelly_Anker_Solix
+
+ExecStart=/home/lukas/Shelly_Anker_Solix/.venv/bin/python /home/lukas/Shelly_Anker_Solix/main.py
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Reload systemd:
 
 ```bash
-@reboot /path/to/project/.venv/bin/python /path/to/project/main.py
+sudo systemctl daemon-reload
+```
+
+Start the service:
+
+```bash
+sudo systemctl restart energy.service
+```
+
+Check service status:
+
+```bash
+sudo systemctl status energy.service
+```
+
+View live logs:
+
+```bash
+journalctl -u energy.service -f
 ```
 
 ---
