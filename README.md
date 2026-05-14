@@ -150,7 +150,7 @@ crontab -e
 Add:
 
 ```bash
-@reboot /path/to/project/.venv/bin/python /path/to/project/main.py
+@reboot cd /home/lukas/Shelly_Anker_Solix && /home/lukas/Shelly_Anker_Solix/.venv/bin/python main.py >> cron.log 2>&1
 ```
 
 ---
