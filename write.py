@@ -2,7 +2,10 @@ import logging
 from typing import Any
 
 from aiohttp import ClientSession
-from api import api
+try:
+    from anker_solix_api import api  # anker-solix-api >= 3.9
+except ImportError:
+    from api import api  # ältere Versionen
 
 
 LOGGER = logging.getLogger(__name__)
