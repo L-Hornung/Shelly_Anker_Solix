@@ -118,6 +118,10 @@ ANKERCOUNTRY=DE
 # Device identification (recommended)
 ANKER_SITE_ID=your_site_id
 ANKER_DEVICE_SN=your_device_serial
+
+# Logging
+CSV_LOG=true      # false = no battery_log_*.csv files
+LOG_LEVEL=INFO    # DEBUG, INFO, WARNING, ERROR, CRITICAL
 ```
 
 ---

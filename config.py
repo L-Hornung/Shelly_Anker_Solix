@@ -26,3 +26,7 @@ ANKERCOUNTRY = os.getenv("ANKERCOUNTRY", "DE")
 
 ANKER_SITE_ID = os.getenv("ANKER_SITE_ID")
 ANKER_DEVICE_SN = os.getenv("ANKER_DEVICE_SN")
+
+# Logging
+CSV_LOG = os.getenv("CSV_LOG", "true").strip().lower() in ("1", "true", "yes", "on")
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").strip().upper()

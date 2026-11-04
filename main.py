@@ -17,6 +17,8 @@ from config import (
     ANKER_POWER_800_W,
     ANKER_SITE_ID,
     ANKERUSER,
+    CSV_LOG,
+    LOG_LEVEL,
     MIN_BATTERY_SOC_PERCENT,
     POLL_INTERVAL_SECONDS,
     SHELLY_URL,
@@ -35,7 +37,7 @@ LOG_FILE = f"battery_log_{start_time}.csv"
 
 
 # --- Header nur einmal schreiben ---
-if not os.path.exists(LOG_FILE):
+if CSV_LOG and not os.path.exists(LOG_FILE):
     with open(LOG_FILE, mode="w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -53,6 +55,9 @@ def log_battery(
     battery_output_set: float | None,
     current_state: str | None
 ):
+    if not CSV_LOG:
+        return
+
     timestamp = datetime.now().isoformat(timespec="milliseconds")
 
     with open(LOG_FILE, mode="a", newline="") as f:
@@ -67,7 +72,7 @@ def log_battery(
 
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=getattr(logging, LOG_LEVEL, logging.INFO),
     format="%(asctime)s | %(levelname)s | %(message)s",
 )
 LOGGER = logging.getLogger(__name__)
